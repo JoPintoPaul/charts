@@ -31,15 +31,14 @@ object CsvToHtml {
     } else None
   }
 
-  def writeContentsToFile(contents: String, file: File) = {
+  private def writeContentsToFile(contents: String, file: File) = {
     val fileWriter = new FileWriter(file)
     fileWriter.write(contents)
     fileWriter.close()
   }
 
   def main(args: Array[String]): Unit = {
-    val datasetToInject = datasetFromLines(linesFromFile("components.csv"))
-    val generatedHtml = generateHtml(datasetToInject)
+    val generatedHtml = generateHtml(datasetFromLines(linesFromFile("components.csv")))
     writeContentsToFile(generatedHtml, new File("charts.html"))
   }
 }
