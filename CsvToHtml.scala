@@ -27,7 +27,7 @@ object CsvToHtml {
   private def csvLineToJson(line: String): Option[String] = {
     val tuple = line.split(",").toList
     if (tuple.length >= 2) {
-      Some(s"{ year: '${tuple(0)}', count: ${tuple(1)} }")
+      Some(s"{ component: '${tuple(0)}', count: ${tuple(1)} }")
     } else None
   }
 
